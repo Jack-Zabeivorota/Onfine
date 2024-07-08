@@ -1,0 +1,32 @@
+.container {
+    position: relative;
+}
+
+.options {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    display: none;
+    flex-direction: column;
+    height: fit-content;
+    padding: 0.7rem;
+    border-radius: 1rem 0.2rem 1rem 1rem;
+    border: 1px solid rgba(var(--text-color), 0.05);
+    backdrop-filter: blur(20px);
+    background-color: rgba(var(--back-color), 0.8);
+    z-index: 5;
+}
+
+.options.left {
+    right: auto;
+    left: 0;
+    border-radius: 0.2rem 1rem 1rem 1rem;
+}
+
+.options.show {
+    display: flex;
+}
+
+.options > *:not(:last-child) {
+    margin-bottom: 0.7rem;
+}

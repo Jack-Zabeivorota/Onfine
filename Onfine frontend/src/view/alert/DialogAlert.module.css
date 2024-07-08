@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    max-width: 20rem;
+    background-color: rgb(var(--back-color));
+    border-radius: 1rem;
+    padding-top: 1rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+/* Content */
+
+.title {
+    font-weight: 300;
+    font-size: 1.1rem;
+    margin: 0 1.5rem;
+}
+
+.content {
+    margin: 1.5rem;
+    text-align: center;
+}

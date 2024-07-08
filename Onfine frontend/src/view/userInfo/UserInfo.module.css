@@ -1,0 +1,50 @@
+.container {
+    display: flex;
+    align-items: center;
+    background-color: rgb(var(--back-color));
+    border-radius: 2rem;
+    padding: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Avatar */
+
+.avatar {
+    --size: 8rem;
+    margin-right: 1.5rem;
+}
+
+/* Info */
+
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.name {
+    font-weight: 300;
+    font-size: 1.3rem;
+}
+
+.nickname {
+    color: rgb(var(--second-color));
+    font-size: 0.8rem;
+    margin-top: 0.2rem;
+}
+
+.status {
+    color: rgb(var(--second-color));
+    font-size: 0.8rem;
+    margin: 1rem 0 1.5rem 0;
+}
+
+.status.accent {
+    color: rgb(var(--accent-color));
+    font-weight: 300;
+}
+
+.send {
+    padding: 0.2rem 1rem;
+}

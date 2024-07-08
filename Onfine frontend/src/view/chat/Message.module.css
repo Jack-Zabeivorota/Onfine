@@ -1,0 +1,138 @@
+.container {
+    display: flex;
+    align-items: center;
+    border-radius: 0.5rem;
+    margin: 0.2rem 0;
+    width: 95%;
+    padding-right: 5%;
+    transition: 0.1s ease-out;
+}
+
+.container.my {
+    flex-direction: row-reverse;
+    padding-right: 0;
+    padding-left: 5%;
+}
+
+.container.selected {
+    background-color: rgba(var(--accent-color), 0.05);
+}
+
+.container.select_mode {
+    cursor: pointer;
+}
+
+.container.select_mode:active {
+    transform: scale(0.97);
+}
+
+.container > * {
+    margin: 0 0.5rem;
+}
+
+/* Avatar */
+
+.avatar {
+    --size: 2rem;
+    min-width: 2rem;
+    align-self: end;
+}
+
+/* Message */
+
+.message {
+    border-radius: 1rem 1rem 1rem 0.2rem;
+    background-color: rgba(var(--text-color), 0.05);
+    color: rgb(var(--text-color));
+    overflow: hidden;
+}
+
+.container.my .message {
+    background-color: rgb(var(--accent-color));
+    color: white;
+    border-radius: 1rem 1rem 0.2rem 1rem;
+}
+
+.message > *:not(.reply) {
+    margin: 0.4rem 0.7rem 0 0.7rem;
+}
+
+.reply {
+    display: flex;
+    align-items: center;
+    background-color: rgba(var(--text-color), 0.05);
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    padding: 0.4rem 0.7rem;
+}
+
+.reply > img {
+    width: 1.5rem;
+    margin-right: 0.4rem;
+}
+
+.name {
+    font-weight: 300;
+}
+
+.image {
+    border-radius: 1rem;
+    max-width: 30vw;
+    width: calc(100% - 1.4rem);
+    cursor: pointer;
+    transition: 0.1s ease-out;
+}
+
+.image:active {
+    transform: scale(0.97);
+}
+
+.content_wrap {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap-reverse;
+    align-items: end;
+    margin-bottom: 0.5rem !important;
+}
+
+.metadata {
+    display: flex;
+    align-items: end;
+    margin-left: 0.5rem;
+}
+
+.readed_indicator {
+    height: 1.3rem;
+    margin-left: 0.2rem;
+}
+
+.time {
+    font-size: 0.7rem;
+    opacity: 0.8;
+}
+
+/* Actions */
+
+.hiding {
+    opacity: 0;
+    transition: 0.2s ease-out;
+}
+
+.container:hover .hiding {
+    opacity: 1;
+}
+
+.options_action {
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.option {
+    text-wrap: nowrap;
+    cursor: pointer;
+    transition: 0.1s ease-out;
+}
+
+.option:active {
+    transform: scale(0.9);
+}

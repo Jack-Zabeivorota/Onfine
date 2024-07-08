@@ -1,0 +1,22 @@
+.ui_close_btn {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    right: 0;
+    width: 3rem;
+    height: 3rem;
+    background-color: black;
+    color: white;
+    font-size: 3rem;
+    border-bottom-left-radius: 1.5rem;
+    cursor: pointer;
+    opacity: 0.4;
+    padding: 0.5rem;
+    transition: 0.1s ease-out;
+}
+
+.ui_close_btn:hover {
+    opacity: 0.6;
+}

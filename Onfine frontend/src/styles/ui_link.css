@@ -1,0 +1,15 @@
+.ui_link {
+    color: rgba(var(--accent-color), 0.8);
+    text-decoration: underline solid;
+    text-underline-offset: 0.3em;
+    cursor: pointer;
+    transition: 0.1s ease-out;
+}
+
+.ui_link:hover {
+    color: rgb(var(--accent-color));
+}
+
+.ui_link:active {
+    transform: scale(0.9);
+}

@@ -1,0 +1,26 @@
+.ui_actions {
+    display: flex;
+    width: 100%;
+}
+
+.ui_actions > button {
+    flex: 1;
+    background-color: transparent;
+    padding: 0.5rem;
+    border-top: 1px solid rgba(var(--text-color), 0.1);
+    font-weight: 300;
+    cursor: pointer;
+    transition: 50ms ease-out;
+}
+
+.ui_actions > button:not(:last-child) {
+    border-right: 1px solid rgba(var(--text-color), 0.1);
+}
+
+.ui_actions > button:hover {
+    background-color: rgba(var(--text-color), 0.02);
+}
+
+.ui_actions > button:active {
+    background-color: rgba(0, 0, 0, 0.1);
+}

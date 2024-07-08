@@ -1,0 +1,16 @@
+.ui_btn {
+    border-radius: 3rem;
+    font-weight: 300;
+    background-color: rgb(var(--accent-color));
+    color: white;
+    cursor: pointer;
+    transition: 0.1s ease-out;
+}
+
+.ui_btn:hover {
+    filter: brightness(1.1);
+}
+
+.ui_btn:active {
+    transform: scale(0.9);
+}

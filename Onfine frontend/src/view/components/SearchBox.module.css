@@ -1,0 +1,20 @@
+.container {
+    display: flex;
+    align-items: center;
+    border-radius: 2rem;
+    border: 1px solid rgba(var(--text-color), 0.05);
+    background-color: rgba(var(--text-color), 0.01);
+    padding: 0.5rem 1rem;
+}
+
+.container > input {
+    flex: 1;
+    background-color: transparent;
+    color: rgb(var(--second-color));
+}
+
+.container > img {
+    width: 1.2rem;
+    opacity: 0.7;
+    margin-left: 0.5rem;
+}

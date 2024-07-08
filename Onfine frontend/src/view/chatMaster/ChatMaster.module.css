@@ -1,0 +1,43 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(var(--back-color));
+    border-radius: 2rem;
+    max-height: 90vh;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.inner_container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 2rem;
+}
+
+/* Fields */
+
+.title {
+    font-weight: 300;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    align-self: center;
+}
+
+.chat_types, .icon_wrap, .private, .members {
+    margin-top: 1rem;
+}
+
+.chat_types > button:not(:last-child) {
+    margin-right: 1rem;
+}
+
+.private {
+    display: flex;
+    align-items: center;
+}
+
+.private > *:not(:last-child) {
+    margin-right: 1rem;
+}

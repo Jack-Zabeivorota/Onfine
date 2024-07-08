@@ -1,0 +1,39 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    background-color: rgb(var(--back-color));
+    border-radius: 2rem;
+    max-height: 90vh;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.inner_container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+}
+
+.icon {
+    --size: 8rem;
+    min-height: var(--size);
+}
+
+.name {
+    font-size: 1.3rem;
+    font-weight: 300;
+    margin-top: 0.5rem;
+}
+
+.metadata {
+    font-size: 0.8rem;
+    color: rgb(var(--second-color));
+    margin-top: 0.3rem;
+}
+
+.desc {
+    margin-top: 1.5rem;
+}

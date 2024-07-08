@@ -1,0 +1,22 @@
+.ui_chip {
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(var(--text-color), 0.05);
+    border-radius: 2rem;
+    background-color: rgba(var(--text-color), 0.01);
+    color: rgba(var(--text-color), 0.8);
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: 0.1s ease-out;
+  }
+  
+  .ui_chip.select {
+    background-color: rgba(var(--text-color), 0.06);
+  }
+  
+  .ui_chip:hover {
+    background-color: rgba(var(--text-color), 0.03);
+  }
+  
+  .ui_chip:active {
+    transform: scale(0.9);
+  }

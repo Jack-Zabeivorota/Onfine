@@ -1,0 +1,59 @@
+.container {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    left: -18rem;
+    width: 18rem;
+    height: 100vh;
+    background-color: rgb(var(--back-color));
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    transition: 0.3s ease-out;
+}
+
+.container.show {
+    left: 0;
+}
+
+/* Avatar */
+
+.avatar {
+    --size: 10rem;
+    margin: 1rem;
+}
+
+/* Names */
+
+.name {
+    font-weight: 300;
+    font-size: 1.2rem;
+    margin: 0.5rem 1rem 0.5rem 1rem;
+}
+
+.nickname {
+    font-size: 0.8rem;
+    color: rgb(var(--second-color));
+    margin-bottom: 5rem;
+}
+
+/* Actions */
+
+.action {
+    width: calc(100% - 2rem);
+    border-radius: 0.3rem;
+    padding: 0.7rem 1rem;
+    cursor: pointer;
+    transition: 0.1s ease-out;
+}
+
+.action:hover {
+    background-color: rgba(var(--text-color), 0.02);
+}
+
+.action:active {
+    transform: scale(0.95);
+}
+
+.action:not(:last-child) {
+    margin-bottom: 0.5rem;
+}

@@ -1,0 +1,20 @@
+.container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.1s ease-out;
+}
+
+.container:active {
+    transform: scale(0.9);
+}
+
+.container > img {
+    width: 1.2rem;
+}
+
+.container > div {
+    margin-left: 0.5rem;
+    font-size: 0.9rem;
+    color: rgb(var(--second-color));
+}

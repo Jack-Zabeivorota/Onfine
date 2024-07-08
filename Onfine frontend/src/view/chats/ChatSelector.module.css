@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
+    background-color: rgb(var(--back-color));
+    border-radius: 2rem;
+    height: 90vh;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Panel */
+
+.top_panel {
+    padding: 1rem;
+}
+
+.top_panel > div:not(:last-child) {
+    margin-bottom: 1rem;
+}
+
+.chat_types {
+    display: flex;
+    align-items: center;
+}
+
+.chat_types > *:not(:last-child) {
+    margin-right: 1rem;
+}
+
+/* Chats */
+
+.chats {
+    flex: 1;
+}

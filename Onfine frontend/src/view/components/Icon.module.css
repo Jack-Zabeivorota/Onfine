@@ -1,0 +1,28 @@
+.container {
+    width: var(--size);
+    height: var(--size);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: rgba(var(--text-color), 0.1);
+    overflow: hidden;
+}
+
+.container.clickable {
+    cursor: pointer;
+    transition: 0.1s ease-out;
+}
+
+.container.clickable:active {
+    transform: scale(0.95);
+}
+
+.container > img {
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.container > span {
+    font-size: calc(var(--size) * 0.6);
+}

@@ -1,0 +1,220 @@
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: calc(100vw - 25rem);
+}
+
+/* Top panel */
+
+.top_panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+    padding: 0 1rem;
+}
+
+.back_btn {
+    width: 1.5rem !important;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.1s ease-out;
+}
+
+.info:active {
+    transform: scale(0.92);
+}
+
+.icon {
+    --size: 2.5rem;
+    margin-right: 1rem;
+}
+
+.status {
+    font-size: 0.8rem;
+    color: rgb(var(--second-color));
+    margin-top: 0.3rem;
+}
+
+.status.accent {
+    color: rgb(var(--accent-color));
+}
+
+.options_action {
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.option {
+    text-wrap: nowrap;
+    cursor: pointer;
+    transition: 0.1s ease-out;
+}
+
+.option:active {
+    transform: scale(0.9);
+}
+
+.select_actions {
+    display: flex;
+    align-items: center;
+}
+
+.select_actions > *:not(:last-child) {
+    margin-right: 1rem;
+}
+
+/* Messages */
+
+.download_capture {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.download_capture > div {
+    font-weight: 300;
+    background-color: rgba(var(--text-color), 0.03);
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+}
+
+.messages {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 3rem;
+}
+
+.separator {
+    padding: 0.2rem 1rem;
+    margin: 0.5rem 0;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    background-color: rgba(var(--text-color), 0.03);
+}
+
+.load_capture {
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    border: 1px solid rgba(var(--text-color), 0.1);
+    margin: 0.5rem 0;
+}
+
+.to_bottom {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: -3rem;
+    bottom: 6rem;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: rgba(var(--text-color), 0.02);
+    border: 1px solid rgba(var(--text-color), 0.1);
+    cursor: pointer;
+    transition: 0.1s ease-out;
+}
+
+.to_bottom:active {
+    transform: scale(0.90);
+}
+
+.to_bottom.show {
+    right: 1rem;
+}
+
+.to_bottom > img {
+    width: 1.5rem;
+    transform: rotate(-90deg);
+}
+
+/* Down panel */
+
+.down_panel {
+    padding: 0.5rem 1rem 1rem 1rem;
+}
+
+.reply {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    margin: 0 2rem;
+    border-radius: 1rem 1rem 0 0;
+    background-color: rgba(var(--accent-color), 0.1);
+}
+
+.reply > *:not(:last-child) {
+    margin-right: 0.5rem;
+}
+
+.reply > img {
+    width: 1.5rem;
+}
+
+.reply > div {
+    flex: 1;
+}
+
+.image_to_send {
+    height: 5rem;
+    max-width: 30vw;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: 0.1s ease-out;
+    margin-left: 2rem;
+}
+
+.image_to_send:active {
+    transform: scale(0.95);
+}
+
+.send_field {
+    display: flex;
+    align-items: end;
+    border-radius: 1.7rem;
+    border: 1px solid rgba(var(--text-color), 0.05);
+    background-color: rgba(var(--text-color), 0.01);
+    padding: 0.3rem;
+}
+
+.send_field > input[type='file'] {
+    display: none;
+}
+
+.image_selector {
+    height: 1.5rem;
+    margin: 0 0 0.5rem 0.5rem;
+}
+
+.send_field > textarea {
+    flex: 1;
+    height: fit-content;
+    margin: 0.5rem 1rem;
+    background-color: transparent;
+    resize: none;
+    overflow: hidden;
+}
+
+.send_field > button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    justify-self: end;
+    box-shadow: 0 0.1rem 20px rgba(var(--accent-color), 0.4);
+}
+
+.send_field > button > img {
+    width: 1.3rem;
+}

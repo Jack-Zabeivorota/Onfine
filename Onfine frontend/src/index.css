@@ -1,0 +1,46 @@
+@font-face {
+  font-family: Montserrat;
+  src: url('./fonts/Montserrat-Regular.ttf');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url('./fonts/Montserrat-SemiBold.ttf');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url('./fonts/Montserrat-Bold.ttf');
+  font-weight: bold;
+}
+
+body {
+  --back-color: 254, 254, 254;
+  --text-color: 0, 0, 0;
+}
+
+body.dark_mode {
+  --back-color: 35, 40, 50;
+  --text-color: 255, 255, 255;
+}
+
+body {
+  --accent-color: 85, 120, 245;
+  --second-color: 150, 150, 150;
+
+  margin: 0;
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  background-color: rgb(var(--back-color));
+  color: rgb(var(--text-color));
+  transition: 0.1s ease-out;
+}
+
+input, button, textarea {
+  border: none;
+  outline-style: none;
+  font-size: 1rem;
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  color: rgb(var(--text-color));
+}
