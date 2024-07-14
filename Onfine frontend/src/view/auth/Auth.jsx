@@ -27,8 +27,8 @@ function RegisterForm() {
 
 
     return (
-        <div className={`${s.form} scroll`}>
-            <div className={s.register_form}>
+        <div className={s.form_wrap}>
+            <div className={`${s.register_form} scroll`}>
                 <span className={s.title}>REGISTER</span>
 
                 <TextBox inputRef={emailRef} label='Email' />
@@ -57,8 +57,8 @@ function LoginForm() {
 
 
     return (
-        <div className={`${s.form} scroll`}>
-            <div className={s.login_form}>
+        <div className={s.form_wrap}>
+            <div className={`${s.login_form} scroll`}>
                 <span className={s.title}>LOGIN</span>
 
                 <TextBox inputRef={emailRef} label='Email' />
@@ -70,17 +70,17 @@ function LoginForm() {
     );
 }
 
-function Auth() {
-    const [icons, isDarkMode] = useSelector(state => [
+function Board({ isRegister, setIsRegister }) {
+    const [icons, isDarkMode, isMobil] = useSelector(state => [
         state.global.icons,
         state.global.isDarkMode,
+        state.global.isMobil
     ]);
     const dispatch = useDispatch();
-    const [isRegister, setIsRegister] = useState(false);
-    
+
 
     function toogleRegister() { setIsRegister(!isRegister); }
-
+    
     function onChangeTheme() { dispatch(changeTheme()); }
 
 
@@ -89,24 +89,40 @@ function Auth() {
         { src: icons.moon, alt: 'dark_theme'  }
 
     return (
-        <section className={`${s.container} ${isRegister && s.register}`}>
+        <div className={s.board}>
+            <img className={`${s.theme_btn} ui_icon_btn`}
+                 src={theme_button.src} alt={theme_button.alt}
+                 onClick={onChangeTheme} />
 
+            <img className={s.logo} src={icons.logo_white} alt="logo" />
+            { !isMobil &&
+                <div className={s.capture}>Social media for your own</div>
+            }
+
+            <button className={s.btn} onClick={toogleRegister}>
+                {isRegister ? 'Login' : 'Register'}
+            </button>
+        </div>
+    );
+}
+
+function Auth() {
+    const isMobil = useSelector(state => state.global.isMobil);
+    const [isRegister, setIsRegister] = useState(false);
+
+    return ( isMobil ?
+        <section className={`${s.mobil_container} ${isRegister && s.register}`}>
+            <div className={s.inner_container}>
+                <LoginForm />
+                <Board isRegister={isRegister} setIsRegister={setIsRegister} />
+                <RegisterForm />
+            </div>
+        </section> :
+
+        <section className={`${s.desktop_container} ${isRegister && s.register}`}>
             <RegisterForm />
             <LoginForm />
-
-            <div className={s.board}>
-                <img className={`${s.theme_btn} ui_icon_btn`}
-                     src={theme_button.src} alt={theme_button.alt}
-                     onClick={onChangeTheme}
-                />
-
-                <img className={s.logo} src={icons.logo_white} alt="logo" />
-                <span className={s.capture}>Social media for your own</span>
-
-                <button className={s.btn} onClick={toogleRegister}>
-                    {isRegister ? 'Login' : 'Register'}
-                </button>
-            </div>
+            <Board isRegister={isRegister} setIsRegister={setIsRegister} />
         </section>
     );
 }

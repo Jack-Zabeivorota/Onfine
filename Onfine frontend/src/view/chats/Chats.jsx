@@ -3,13 +3,9 @@ import { useState, useMemo, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectChat, searchChats, searchUsers, updateKeysData } from '../../store/chatSlice';
 import { changeShowedMenu, setChatMasterData, setChatInfoData, setUserInfoData } from '../../store/globalSlice';
-import createWebSocket from '../../websocket';
-import Menu from '../menu/Menu';
 import SearchBox from '../components/SearchBox';
 import ChatItem from './ChatItem';
 import UserItem from '../userSelector/UserItem';
-import Chat from '../chat/Chat';
-import Posts from '../posts/Posts';
 
 
 function Chats() {
@@ -45,8 +41,6 @@ function Chats() {
     [chatType, allChats, isSearch, foundChats]);
 
     const users = isSearch ? foundUsers : [];
-
-    useEffect(() => createWebSocket(dispatch), [dispatch]);
 
     useEffect(() => { chatsIsLoaded && dispatch(updateKeysData()); }, [chatsIsLoaded, dispatch]);
 
@@ -93,7 +87,6 @@ function Chats() {
 
     return (
         <section className={s.container}>
-            <div className={s.inner_container}>
 
                 <div className={s.top_panel}>
 
@@ -135,11 +128,6 @@ function Chats() {
                 </div>
 
                 <button className={`${s.add_btn} ui_btn`} onClick={onCreateChat}>+</button>
-
-            </div>
-
-            { chatId === null ? <Posts /> : <Chat /> }
-            <Menu />
 
         </section>
     );

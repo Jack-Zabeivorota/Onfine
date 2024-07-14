@@ -1,4 +1,4 @@
-import s from './UserDataUpdater.module.css';
+import s from './userDataUpdater.module.css';
 import { useRef, useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateUserData, updatePassword, changeShowedUserDataUpdater, setAlertData, deleteUser } from '../../store/globalSlice';

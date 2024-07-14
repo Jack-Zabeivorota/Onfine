@@ -1,0 +1,16 @@
+.desktop_container {
+    display: flex;
+    height: 100vh;
+}
+
+.desktop_container .chats {
+    width: 25rem;
+}
+
+.desktop_container .inner {
+    flex: 1;
+}
+
+.mobil_container {
+    height: 100vh;
+}

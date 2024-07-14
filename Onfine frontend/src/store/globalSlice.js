@@ -5,6 +5,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { getChats, getPosts } from './chatSlice';
 import { serverURL, userData } from './localData';
 import { alertErrDecor, createFormData, throwError, cleanText, AESEncrypt, AESDecrypt } from '../tools';
+import createWebSocket from '../websocket';
 
 
 function getPasswordAndKey(password) {
@@ -47,8 +48,9 @@ export const login = createAsyncThunk(
         userData.name      = cleanText(name);
         userData.nickname  = cleanText(nickname);
         userData.with_avatar     = with_avatar;
-        userData.latestKeyUpdate = latest_key_update
+        userData.latestKeyUpdate = latest_key_update;
 
+        createWebSocket(thunkAPI.dispatch);
         thunkAPI.dispatch(getChats());
         thunkAPI.dispatch(getPosts());
     }),
@@ -96,6 +98,7 @@ export const register = createAsyncThunk(
         userData.nickname    = nickname;
         userData.with_avatar = false;
 
+        createWebSocket(thunkAPI.dispatch);
         thunkAPI.dispatch(getChats());
         thunkAPI.dispatch(getPosts());
     }),
@@ -224,6 +227,7 @@ export const deleteUser = createAsyncThunk(
 const initialState = {
     isDarkMode: true,
     icons: {...icons, ...iconsDark},
+    isMobil: false,
     alertData: null,
     chatSelectorData: null,
     isShowedAuth: true,
@@ -246,6 +250,7 @@ export const globalSlice = createSlice({
             {...icons, ...iconsDark} :
             {...icons, ...iconsLight};
         },
+        setIsMobil:          (state, action) => { state.isMobil = action.payload; },
         setAlertData:        (state, action) => { state.alertData = action.payload; },
         setChatSelectorData: (state, action) => { state.chatSelectorData = action.payload; },
         changeShowedUserDataUpdater: (state, action) => { state.isShowedUserDataUpdater = action.payload },
@@ -264,6 +269,7 @@ export const globalSlice = createSlice({
 
 export const {
     changeTheme,
+    setIsMobil,
     setAlertData,
     setChatSelectorData,
     changeShowedMenu,

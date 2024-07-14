@@ -1,10 +1,10 @@
 import s from './Chat.module.css';
 import { useRef, useMemo, useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { leaveChat, deleteChat, sendMessage, deleteMessages, writingInChat, addMembers, getMessages, readChat } from '../../store/chatSlice';
+import { leaveChat, deleteChat, sendMessage, deleteMessages, writingInChat, addMembers, getMessages, readChat, selectChat } from '../../store/chatSlice';
 import { setFullScreenImage, setAlertData, setUserSelectorData, setUserInfoData, setChatInfoData, setChatMasterData } from '../../store/globalSlice';
 import { getDate, getFormatNum, getTimeDelta } from '../../tools.js';
-import { imagesURL } from '../../store/localData.js';
+import { imagesURL, userData } from '../../store/localData.js';
 import Message from './Message';
 import Icon from '../components/Icon.jsx';
 import DropBox from '../components/DropBox';
@@ -95,8 +95,9 @@ function getOptions(chat, dispatch) {
 }
 
 function TopPanel({ chat, selectedMessageIds, setSelectedMessageIds }) {
-    const [icons, users] = useSelector(state => [
+    const [icons, isMobil, users] = useSelector(state => [
         state.global.icons,
+        state.global.isMobil,
         state.chat.users,
     ]);
     const dispatch = useDispatch();
@@ -135,10 +136,15 @@ function TopPanel({ chat, selectedMessageIds, setSelectedMessageIds }) {
         }))
     }
 
+    function onBack() { dispatch(selectChat(null)); }
+
 
     return (
         <div className={s.top_panel}>
-            <div></div>
+            { isMobil ?
+                <img className={`${s.back_btn} ui_icon_btn`} src={icons.arrow_left} onClick={onBack} alt="back" /> :
+                <div></div>
+            }
 
             <div className={s.info} onClick={onInfoClick}>
 
@@ -168,6 +174,17 @@ function TopPanel({ chat, selectedMessageIds, setSelectedMessageIds }) {
     )
 }
 
+function getReplySenderName(replyData, users) {
+    if (!replyData) return '(unknow)';
+
+    const senderId = replyData.senderId;
+
+    if (senderId === userData.userId) return userData.name;
+    if (senderId in users) return users[senderId].name;
+
+    return '(unknow)';
+}
+
 function DownPanel({ chat, replyData, setReplyData }) {
     const [icons, users] = useSelector(state => [
         state.global.icons,
@@ -182,7 +199,7 @@ function DownPanel({ chat, replyData, setReplyData }) {
     const [preview, setPreview] = useState(null);
     const [writingTimer, setWritingTimer] = useState(null);
 
-    const replySenderName = users[replyData?.senderId]?.name ?? '(unknow)';
+    const replySenderName = getReplySenderName(replyData, users);
 
     useEffect(() => {
         if (image !== null) {

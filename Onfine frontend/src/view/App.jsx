@@ -1,12 +1,14 @@
 import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import Chats from './chats/Chats';
+import { useDispatch, useSelector } from 'react-redux';
+import { setIsMobil } from '../store/globalSlice';
 import Auth from './auth/Auth';
+import Menu from './menu/Menu';
+import Layout from './layout/Layout';
 import DialogAlert from './alert/DialogAlert';
 import Alert from './alert/Alert';
 import FullScreenImage from './components/FullScreenImage';
 import ChatSelector from './chats/ChatSelector';
-import UserDataUpdater from './userDataUpdater/UserDataUpdater';
+import UserDataUpdater from './userDataUpdater/userDataUpdater';
 import ChatMaster from './chatMaster/ChatMaster';
 import UserSelector from './userSelector/UserSelector';
 import UserInfo from './userInfo/UserInfo';
@@ -23,7 +25,7 @@ function App() {
         userSelectorData,
         userInfoData,
         chatInfoData,
-        image
+        fullScreenImage
     ] = useSelector(state => [
         state.global.isDarkMode,
         state.global.isShowedAuth,
@@ -34,16 +36,33 @@ function App() {
         state.global.userSelectorData,
         state.global.userInfoData,
         state.global.chatInfoData,
-        state.global.fullScreenImage,
+        state.global.fullScreenImage
     ]);
+    
+    const dispatch = useDispatch();
+
+
+    function onResize() {
+        dispatch(setIsMobil(window.innerWidth < 1000));
+    }
+
 
     useEffect(() => {
         const body = document.querySelector('body');
         isDarkMode ? body.classList.add('dark_mode') : body.classList.remove('dark_mode');
     }, [isDarkMode]);
 
-    return (<>
-        { isShowedAuth ? <Auth /> : <Chats /> }
+    useEffect(() => {
+        onResize();
+        window.addEventListener('resize', onResize);
+        return () => window.removeEventListener('resize', onResize);
+    }, []);
+
+    return (
+    <>
+        { isShowedAuth ? <Auth /> : <Layout /> }
+
+        <Menu />
 
         { isShowedUserDataUpdater && <UserDataUpdater /> }
 
@@ -57,7 +76,7 @@ function App() {
 
         { chatInfoData !== null && <ChatInfo chat={chatInfoData} /> }
 
-        { image !== null && <FullScreenImage src={image} /> }
+        { fullScreenImage !== null && <FullScreenImage src={fullScreenImage} /> }
 
         { alertData !== null &&
             (alertData.actions !== undefined ?
@@ -65,7 +84,8 @@ function App() {
                 <Alert {...alertData} />
             )
         }
-    </>);
+    </>
+    );
 }
 
 export default App;
